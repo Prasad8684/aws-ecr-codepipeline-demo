@@ -11,10 +11,10 @@ phases:
     commands:
       - echo build Docker image on `date`
       - cd src
-      - docker build -t base-image:latest .
-      - docker tag base-image:latest 561880438739.dkr.ecr.us-east-1.amazonaws.com/base-image:latest
+      - docker build -t test-doc-ecr:latest .
+      - docker tag test-doc-ecr:latest 561880438739.dkr.ecr.us-east-1.amazonaws.com/test-doc-ecr:latest
   post_build:
     commands:
       - echo build Docker image complete `date`
       - echo push latest Docker images to ECR...
-      - docker push 561880438739.dkr.ecr.us-east-1.amazonaws.com/base-image:latest
+      - docker push 561880438739.dkr.ecr.us-east-1.amazonaws.com/test-doc-ecr:latest
